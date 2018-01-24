@@ -1,0 +1,144 @@
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        .container {
+            width: 600px;
+            margin-top: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        body{
+            background-color: #F6F6F6;
+            background-image: url('background.jpg');
+            background-repeat: no-repeat;
+            background-position-x: center;
+        }
+        h1{
+            color: #E84334;
+            font-size: 2em;
+            text-transform: uppercase;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        h2{
+            color: #F68B61;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        h3{
+            color: #6FB89D;
+            font-family:Courier New, Courier, monospace;
+        }
+        h4{
+            color: #6FB89D;
+            font-family:Arial, Helvetica, sans-serif;
+        }
+        .center{
+            text-align: center;
+        }
+        a, a:active, a:link{
+            color: rgb(21, 82, 59);
+        }
+        a:hover{
+            color: rgb(48, 194, 138);
+        }
+        html,body{
+            height:100%
+        }
+
+        .bg_heart {
+            position: relative;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden
+        }
+
+        .heart {
+            position: absolute;
+            top: -50%;
+            -webkit-transform: rotate(-45deg);
+            -moz-transform: rotate(-45deg);
+            -m-transform: rotate(-45deg);
+            transform: rotate(-45deg)
+        }
+
+        .heart:before {
+            position: absolute;
+            top: -50%;
+            left: 0;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        .heart:after {
+            position: absolute;
+            top: 0;
+            right: -50%;
+            display: block;
+            content: "";
+            width: 100%;
+            height: 100%;
+            background: inherit;
+            border-radius: 100%;
+        }
+
+        @-webkit-keyframes love {
+        0%{top:110%}
+        }
+        @-moz-keyframes love {
+        0%{top:110%}
+        }
+        @-ms-keyframes love {
+        0%{top:110%}
+        }
+        @keyframes love {
+        0%{top:110%}
+        }
+    </style>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+</head>
+<body class="bg_heart">
+    <div class="container">
+        <div class="center">
+            <h1>Lễ Báo Hỷ</h1>
+            <h3>của hai em</h3>
+            <h2>Trần Anh Dũng & Trần Thị Kiều Diễm</h2>
+            <strong>-oOo-</strong>
+            <h4>Kính mời anh (chị)<br/>
+            Vào lúc: 18h30 Ngày: 28/01/2018<br/>
+            Cùng chung vui với tụi em tại:<br/><br/>
+                <a target="_blank" href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d979.8719124388858!2d106.67111205015411!3d10.773913463331699!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752edeca1b821b%3A0x9bf3f2a66433b88!2sDOHO+Beer+Garden!5e0!3m2!1sen!2s!4v1516762880800">
+                    DOHO Beer Garden<br/>
+                    16A Lê Hồng Phong, Phường 12, Quận 10, Hồ Chí Minh<br/>
+                </a>
+            </h4>
+        </div>
+    </div>
+    <script type="text/javascript">
+        var love = setInterval(function() {
+            var r_num = Math.floor(Math.random() * 40) + 1;
+            var r_size = Math.floor(Math.random() * 65) + 10;
+            var r_left = Math.floor(Math.random() * 100) + 1;
+            var r_bg = Math.floor(Math.random() * 25) + 100;
+            var r_time = Math.floor(Math.random() * 5) + 5;
+
+            $('.bg_heart').append("<div class='heart' style='width:" + r_size + "px;height:" + r_size + "px;left:" + r_left + "%;background:rgba(255," + (r_bg - 25) + "," + r_bg + ",1);-webkit-animation:love " + r_time + "s ease;-moz-animation:love " + r_time + "s ease;-ms-animation:love " + r_time + "s ease;animation:love " + r_time + "s ease'></div>");
+
+            $('.bg_heart').append("<div class='heart' style='width:" + (r_size - 10) + "px;height:" + (r_size - 10) + "px;left:" + (r_left + r_num) + "%;background:rgba(255," + (r_bg - 25) + "," + (r_bg + 25) + ",1);-webkit-animation:love " + (r_time + 5) + "s ease;-moz-animation:love " + (r_time + 5) + "s ease;-ms-animation:love " + (r_time + 5) + "s ease;animation:love " + (r_time + 5) + "s ease'></div>");
+
+            $('.heart').each(function() {
+                var top = $(this).css("top").replace(/[^-\d\.]/g, '');
+                var width = $(this).css("width").replace(/[^-\d\.]/g, '');
+                if (top <= -100 || width >= 150) {
+                    $(this).detach();
+                }
+            });
+        }, 500);
+    </script>
+</body>
+</html>
